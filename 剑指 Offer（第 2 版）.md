@@ -424,6 +424,29 @@ class Solution {
 }
 ```
 
+## [剑指 Offer 28. 对称的二叉树](https://leetcode-cn.com/problems/dui-cheng-de-er-cha-shu-lcof/)
+
+```java
+class Solution {
+    public boolean isSymmetric(TreeNode root) {
+        if(root == null){
+            return true;
+        }
+        return judeg(root.left, root.right);
+    }
+
+    public boolean judeg(TreeNode left, TreeNode right){
+        if(left == null && right == null){
+            return true;
+        }
+        if(left == null || right == null || left.val != right.val){
+            return false;
+        }
+        return judeg(left.left, right.right) && judeg(left.right, right.left);
+    }
+}
+```
+
 ## [剑指 Offer 32 - I. 从上到下打印二叉树](https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-lcof/)
 
 我说怎么内存超出限制，不应该啊，原来是`offer`成根节点的了
